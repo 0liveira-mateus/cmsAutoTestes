@@ -1,6 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    Collections
+Library    FakerLibrary
 
 *** Variables ***
 &{login}
@@ -11,6 +12,7 @@ Library    Collections
 ...    camposenha=//input[@type="password"]
 ...    btnEntrar=//button[@id="btn-login"]
 ...    validacaoLogin=//div[@class="jconfirm-box jconfirm-hilight-shake jconfirm-type-red jconfirm-type-animated"]
+...    validacaoSite=//nav[@class="navbar navbar-expand-lg navbar-light bg-light"]
 
 
 *** Keywords ***
@@ -123,7 +125,32 @@ Acessar uma página que n existe
     ELSE
         Fail    1º Passo: Falhou - Página de Login não encontrada
     END
+E preenchendo os dados de login com dados inexistentes
+    ${email}    FakerLibrary.Email
+    Input Text    ${login.campoemail}    ${email}
+    ${senha}    FakerLibrary.Password
+    Input Password    ${login.camposenha}    ${senha}
 
+    ${valorEmail}    Get Value    ${login.campoemail}
+    
+    IF    $valorEmail == $email
+        ${valorSenha}    Get Value    ${login.camposenha}
+        IF    $valorSenha == $senha
+            Log To Console    2ºPasso: Ok 
+        ELSE
+            Fail    2ºPasso: Falhou - O campo de senha não foi preenchido corretamente e sim com o valor: ${valorSenha}  
+        END
+    ELSE
+        Fail    2ºPasso: Falhou - O campo de email não foi preenchido corretamente e sim com o valor: ${valorEmail}  
+    END
+Então ele verá que o usuário é direcionada para páginas de clientes 
+    ${visible}    Run Keyword And Return Status    Wait Until Element Is Visible    ${login.validacaoSite}    10
+    IF    $visible
+        Log To Console    4º Passo: Ok 
+        Close Browser
+    ELSE
+        Fail    4º Passo: Falhou  
+    END
 *** Test Cases ***
 Logando - Sucesso 
     Dado um usuário Acessando a página de login do CMS
@@ -140,5 +167,11 @@ Logando Sem E-mail
     E preenchendo apenas o campo de senha
     Quando ele Clicar no botão de Entrar
     Então ele deverá ter seu login impedido pela falta de preenchimento de e-mail ou senha 
+
+Logado com e-mail inexistente 
+    Dado um usuário Acessando a página de login do CMS
+    E preenchendo os dados de login com dados inexistentes 
+    Quando ele Clicar no botão de Entrar
+    Então ele verá que o usuário é direcionada para páginas de clientes 
 Teste Feito pra falhar
     Acessar uma página que n existe 

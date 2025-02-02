@@ -12,7 +12,8 @@ Library    Collections
 ...    validacaoLogin=//div[@class="jconfirm-box jconfirm-hilight-shake jconfirm-type-red jconfirm-type-animated"]
 ...    menuUsuario=(//a[@class="nav-link "])[1]
 ...    btnNovoUsuario=//a[@class="btn btn-sm btn-success"]
-
+...    cardFormularioUsuarios=//div[@class="card-body"]
+...    campo_titulo=(//input[@type="text"])[1]
 
 *** Keywords ***
 
@@ -91,13 +92,40 @@ E acessando o menu usuários
 
     IF    $visible
         Log To Console    5ºPasso: Ok 
-        Close Browser
     ELSE
         Fail    5ºPasso: Falhou - O botão de cadastro de usuários não foi visto em tela 
     END
+E iniciar o cadastro de um novo usuário 
+    Click Element    ${cadastro.btnNovoUsuario}
+
+    ${visible}    Run Keyword And Return Status    Wait Until Element Is Visible    ${cadastro.cardFormularioUsuarios}
+
+    IF    $visible
+        &{fields}=    Create Dictionary
+        ...    Campo Titulo=${cadastro.campo_titulo}
+    
+    
+        @{Campos_Nao_Encontrados}=    Create List
+        Sleep    2
+        FOR    ${field}    IN    @{fields.keys()}
+            ${Visible}    Run Keyword And Return Status    Element Should Be Visible   ${fields["${field}"]}
+            IF    '${Visible}' == 'False'
+                Append To List     ${Campos_Nao_Encontrados}    ${field}
+            END
+        END
+        IF    ${Campos_Nao_Encontrados} != []
+            Fail    6ºPasso: Falhou - O campos ${Campos_Nao_Encontrados} não foram encontrados
+        ELSE
+            Log To Console    6ºPasso: Ok 
+        END
+    ELSE
+        Fail    6ºPasso: Falhou - Formulário de cadastro não encontrado 
+    END
+    
 *** Test Cases ***
 Cadastrar um usuário 
     Dado um usuário realizando login no sistema 
     E acessando o menu usuários 
+    E iniciar o cadastro de um novo usuário 
 ## Cadastrar um usuário sem Nome
     
