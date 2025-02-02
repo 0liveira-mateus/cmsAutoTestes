@@ -17,7 +17,7 @@ Library    Collections
 *** Keywords ***
 
 Dado um usuário realizando login no sistema 
-    Open Browser    ${cadastro.url}    Firefox
+    Open Browser    ${cadastro.url}    edge
 
     ${visivel}    Run Keyword And Return Status    Wait Until Element Is Visible    ${cadastro.cardLogin}    2
 
@@ -99,4 +99,5 @@ E acessando o menu usuários
 Cadastrar um usuário 
     Dado um usuário realizando login no sistema 
     E acessando o menu usuários 
+## Cadastrar um usuário sem Nome
     

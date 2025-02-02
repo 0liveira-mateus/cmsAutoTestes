@@ -16,7 +16,7 @@ Library    Collections
 
 ## Logando - Sucesso 
 Dado um usuário Acessando a página de login do CMS
-    Open Browser    ${login.url}    Firefox
+    Open Browser    ${login.url}    edge
 
     ${visivel}    Run Keyword And Return Status    Wait Until Element Is Visible    ${login.cardLogin}    2
 
