@@ -96,7 +96,7 @@ Então ele deverá ter seu login impedido pela falta de preenchimento de e-mail 
     ${visivel}    Run Keyword And Return Status    Wait Until Element Is Visible    ${login.validacaoLogin}    ${tempoEspera}
 
     IF    ${visivel}    
-        Log To Console    4º Passo: Ok - mensagem de validação de e-mail e senha mostrada com sucesso 
+        Log To Console    4º Passo: Ok - mensagem de validação de e-mail e senha mostrada com sucesso!!
         Close Browser
     ELSE    
         Fail    4º Passo: Falhou - A mensagem de validação de e-mail e senha não foi vista em ${tempoEspera} segundos

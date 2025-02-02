@@ -91,6 +91,7 @@ E acessando o menu usuários
 
     IF    $visible
         Log To Console    5ºPasso: Ok 
+        Close Browser
     ELSE
         Fail    5ºPasso: Falhou - O botão de cadastro de usuários não foi visto em tela 
     END
