@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.2 on win32)" generated="20250202 16:06:23.776" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.2 on win32)" generated="20250202 16:14:55.961" rpa="false" schemaversion="4">
 <suite id="s1" name="Login" source="C:\Users\tsjes\OneDrive\Documentos\cmsAutoTestes\suites\Login.robot">
-<test id="s1-t1" name="Logando - Sucesso" line="116">
+<test id="s1-t1" name="Logando - Sucesso" line="128">
 <kw name="Dado um usuário Acessando a página de login do CMS">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${login.url}</arg>
-<arg>edge</arg>
+<arg>firefox</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20250202 16:06:24.222" level="INFO">Opening browser 'edge' to base url 'https://manual.biobots.com.br/login'.</msg>
-<status status="PASS" starttime="20250202 16:06:24.221" endtime="20250202 16:06:31.584"/>
+<msg timestamp="20250202 16:14:56.686" level="INFO">Opening browser 'firefox' to base url 'https://manual.biobots.com.br/login'.</msg>
+<status status="PASS" starttime="20250202 16:14:56.681" endtime="20250202 16:15:11.314"/>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <var>${visivel}</var>
@@ -20,29 +20,29 @@
 <arg>${login.cardLogin}</arg>
 <arg>2</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250202 16:06:31.586" endtime="20250202 16:06:31.723"/>
+<status status="PASS" starttime="20250202 16:15:11.315" endtime="20250202 16:15:11.413"/>
 </kw>
-<msg timestamp="20250202 16:06:31.724" level="INFO">${visivel} = True</msg>
-<status status="PASS" starttime="20250202 16:06:31.585" endtime="20250202 16:06:31.724"/>
+<msg timestamp="20250202 16:15:11.414" level="INFO">${visivel} = True</msg>
+<status status="PASS" starttime="20250202 16:15:11.315" endtime="20250202 16:15:11.414"/>
 </kw>
 <if>
 <branch type="IF" condition="${visivel}">
 <kw name="Log To Console" library="BuiltIn">
 <arg>1º Passo: Ok</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20250202 16:06:31.724" endtime="20250202 16:06:31.725"/>
+<status status="PASS" starttime="20250202 16:15:11.415" endtime="20250202 16:15:11.416"/>
 </kw>
-<status status="PASS" starttime="20250202 16:06:31.724" endtime="20250202 16:06:31.725"/>
+<status status="PASS" starttime="20250202 16:15:11.414" endtime="20250202 16:15:11.416"/>
 </branch>
 <branch type="ELSE">
 <kw name="Fail" library="BuiltIn">
 <arg>1º Passo: Falhou - Página de Login não encontrada</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20250202 16:06:31.725" endtime="20250202 16:06:31.726"/>
+<status status="NOT RUN" starttime="20250202 16:15:11.416" endtime="20250202 16:15:11.417"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:06:31.725" endtime="20250202 16:06:31.726"/>
+<status status="NOT RUN" starttime="20250202 16:15:11.416" endtime="20250202 16:15:11.417"/>
 </branch>
-<status status="PASS" starttime="20250202 16:06:31.724" endtime="20250202 16:06:31.726"/>
+<status status="PASS" starttime="20250202 16:15:11.414" endtime="20250202 16:15:11.417"/>
 </if>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>&amp;{fields}</var>
@@ -50,20 +50,20 @@
 <arg>Campo de Senha=${login.camposenha}</arg>
 <arg>Botão de Entrar=${login.btnEntrar}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20250202 16:06:31.730" level="INFO">&amp;{fields} = { Campo de Email=//input[@type="text"] | Campo de Senha=//input[@type="password"] | Botão de Entrar=//button[@id="btn-login"] }</msg>
-<status status="PASS" starttime="20250202 16:06:31.726" endtime="20250202 16:06:31.730"/>
+<msg timestamp="20250202 16:15:11.422" level="INFO">&amp;{fields} = { Campo de Email=//input[@type="text"] | Campo de Senha=//input[@type="password"] | Botão de Entrar=//button[@id="btn-login"] }</msg>
+<status status="PASS" starttime="20250202 16:15:11.417" endtime="20250202 16:15:11.422"/>
 </kw>
 <kw name="Create List" library="BuiltIn">
 <var>@{Campos_Nao_Encontrados}</var>
 <doc>Returns a list containing given items.</doc>
-<msg timestamp="20250202 16:06:31.731" level="INFO">@{Campos_Nao_Encontrados} = [ ]</msg>
-<status status="PASS" starttime="20250202 16:06:31.730" endtime="20250202 16:06:31.731"/>
+<msg timestamp="20250202 16:15:11.423" level="INFO">@{Campos_Nao_Encontrados} = [ ]</msg>
+<status status="PASS" starttime="20250202 16:15:11.422" endtime="20250202 16:15:11.423"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250202 16:06:33.732" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20250202 16:06:31.731" endtime="20250202 16:06:33.732"/>
+<msg timestamp="20250202 16:15:13.425" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20250202 16:15:11.423" endtime="20250202 16:15:13.425"/>
 </kw>
 <for flavor="IN">
 <var>${field}</var>
@@ -78,11 +78,11 @@
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${fields["${field}"]}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20250202 16:06:33.849" level="INFO">Element '//input[@type="text"]' is displayed.</msg>
-<status status="PASS" starttime="20250202 16:06:33.733" endtime="20250202 16:06:33.849"/>
+<msg timestamp="20250202 16:15:13.464" level="INFO">Element '//input[@type="text"]' is displayed.</msg>
+<status status="PASS" starttime="20250202 16:15:13.428" endtime="20250202 16:15:13.465"/>
 </kw>
-<msg timestamp="20250202 16:06:33.849" level="INFO">${Visible} = True</msg>
-<status status="PASS" starttime="20250202 16:06:33.733" endtime="20250202 16:06:33.849"/>
+<msg timestamp="20250202 16:15:13.465" level="INFO">${Visible} = True</msg>
+<status status="PASS" starttime="20250202 16:15:13.427" endtime="20250202 16:15:13.465"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Visible}' == 'False'">
@@ -90,13 +90,13 @@
 <arg>${Campos_Nao_Encontrados}</arg>
 <arg>${field}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="NOT RUN" starttime="20250202 16:06:33.849" endtime="20250202 16:06:33.849"/>
+<status status="NOT RUN" starttime="20250202 16:15:13.466" endtime="20250202 16:15:13.466"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:06:33.849" endtime="20250202 16:06:33.850"/>
+<status status="NOT RUN" starttime="20250202 16:15:13.465" endtime="20250202 16:15:13.466"/>
 </branch>
-<status status="PASS" starttime="20250202 16:06:33.849" endtime="20250202 16:06:33.850"/>
+<status status="PASS" starttime="20250202 16:15:13.465" endtime="20250202 16:15:13.466"/>
 </if>
-<status status="PASS" starttime="20250202 16:06:33.733" endtime="20250202 16:06:33.850"/>
+<status status="PASS" starttime="20250202 16:15:13.427" endtime="20250202 16:15:13.466"/>
 </iter>
 <iter>
 <var name="${field}">Campo de Senha</var>
@@ -108,11 +108,11 @@
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${fields["${field}"]}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20250202 16:06:33.891" level="INFO">Element '//input[@type="password"]' is displayed.</msg>
-<status status="PASS" starttime="20250202 16:06:33.850" endtime="20250202 16:06:33.892"/>
+<msg timestamp="20250202 16:15:13.517" level="INFO">Element '//input[@type="password"]' is displayed.</msg>
+<status status="PASS" starttime="20250202 16:15:13.467" endtime="20250202 16:15:13.518"/>
 </kw>
-<msg timestamp="20250202 16:06:33.892" level="INFO">${Visible} = True</msg>
-<status status="PASS" starttime="20250202 16:06:33.850" endtime="20250202 16:06:33.892"/>
+<msg timestamp="20250202 16:15:13.518" level="INFO">${Visible} = True</msg>
+<status status="PASS" starttime="20250202 16:15:13.467" endtime="20250202 16:15:13.518"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Visible}' == 'False'">
@@ -120,13 +120,13 @@
 <arg>${Campos_Nao_Encontrados}</arg>
 <arg>${field}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="NOT RUN" starttime="20250202 16:06:33.892" endtime="20250202 16:06:33.892"/>
+<status status="NOT RUN" starttime="20250202 16:15:13.519" endtime="20250202 16:15:13.519"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:06:33.892" endtime="20250202 16:06:33.892"/>
+<status status="NOT RUN" starttime="20250202 16:15:13.518" endtime="20250202 16:15:13.519"/>
 </branch>
-<status status="PASS" starttime="20250202 16:06:33.892" endtime="20250202 16:06:33.892"/>
+<status status="PASS" starttime="20250202 16:15:13.518" endtime="20250202 16:15:13.519"/>
 </if>
-<status status="PASS" starttime="20250202 16:06:33.850" endtime="20250202 16:06:33.892"/>
+<status status="PASS" starttime="20250202 16:15:13.466" endtime="20250202 16:15:13.519"/>
 </iter>
 <iter>
 <var name="${field}">Botão de Entrar</var>
@@ -138,11 +138,11 @@
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${fields["${field}"]}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20250202 16:06:33.932" level="INFO">Element '//button[@id="btn-login"]' is displayed.</msg>
-<status status="PASS" starttime="20250202 16:06:33.893" endtime="20250202 16:06:33.932"/>
+<msg timestamp="20250202 16:15:13.562" level="INFO">Element '//button[@id="btn-login"]' is displayed.</msg>
+<status status="PASS" starttime="20250202 16:15:13.521" endtime="20250202 16:15:13.562"/>
 </kw>
-<msg timestamp="20250202 16:06:33.932" level="INFO">${Visible} = True</msg>
-<status status="PASS" starttime="20250202 16:06:33.892" endtime="20250202 16:06:33.932"/>
+<msg timestamp="20250202 16:15:13.562" level="INFO">${Visible} = True</msg>
+<status status="PASS" starttime="20250202 16:15:13.519" endtime="20250202 16:15:13.562"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Visible}' == 'False'">
@@ -150,75 +150,75 @@
 <arg>${Campos_Nao_Encontrados}</arg>
 <arg>${field}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="NOT RUN" starttime="20250202 16:06:33.934" endtime="20250202 16:06:33.934"/>
+<status status="NOT RUN" starttime="20250202 16:15:13.563" endtime="20250202 16:15:13.563"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:06:33.932" endtime="20250202 16:06:33.934"/>
+<status status="NOT RUN" starttime="20250202 16:15:13.563" endtime="20250202 16:15:13.563"/>
 </branch>
-<status status="PASS" starttime="20250202 16:06:33.932" endtime="20250202 16:06:33.934"/>
+<status status="PASS" starttime="20250202 16:15:13.562" endtime="20250202 16:15:13.563"/>
 </if>
-<status status="PASS" starttime="20250202 16:06:33.892" endtime="20250202 16:06:33.934"/>
+<status status="PASS" starttime="20250202 16:15:13.519" endtime="20250202 16:15:13.564"/>
 </iter>
-<status status="PASS" starttime="20250202 16:06:33.732" endtime="20250202 16:06:33.934"/>
+<status status="PASS" starttime="20250202 16:15:13.425" endtime="20250202 16:15:13.564"/>
 </for>
 <if>
 <branch type="IF" condition="${Campos_Nao_Encontrados} != []">
 <kw name="Fail" library="BuiltIn">
 <arg>1ºPasso: Falhou - O campos ${Campos_Nao_Encontrados} não foram encontrados</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20250202 16:06:33.934" endtime="20250202 16:06:33.934"/>
+<status status="NOT RUN" starttime="20250202 16:15:13.565" endtime="20250202 16:15:13.565"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:06:33.934" endtime="20250202 16:06:33.934"/>
+<status status="NOT RUN" starttime="20250202 16:15:13.564" endtime="20250202 16:15:13.565"/>
 </branch>
 <branch type="ELSE">
 <kw name="Sleep" library="BuiltIn">
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250202 16:06:35.934" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20250202 16:06:33.934" endtime="20250202 16:06:35.934"/>
+<msg timestamp="20250202 16:15:15.566" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20250202 16:15:13.565" endtime="20250202 16:15:15.566"/>
 </kw>
-<status status="PASS" starttime="20250202 16:06:33.934" endtime="20250202 16:06:35.934"/>
+<status status="PASS" starttime="20250202 16:15:13.565" endtime="20250202 16:15:15.566"/>
 </branch>
-<status status="PASS" starttime="20250202 16:06:33.934" endtime="20250202 16:06:35.934"/>
+<status status="PASS" starttime="20250202 16:15:13.564" endtime="20250202 16:15:15.566"/>
 </if>
-<status status="PASS" starttime="20250202 16:06:24.221" endtime="20250202 16:06:35.934"/>
+<status status="PASS" starttime="20250202 16:14:56.680" endtime="20250202 16:15:15.566"/>
 </kw>
 <kw name="E preenchendo os campos de email e senha">
 <kw name="Set Variable" library="BuiltIn">
 <var>${email}</var>
 <arg>admin@site.com</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20250202 16:06:35.935" level="INFO">${email} = admin@site.com</msg>
-<status status="PASS" starttime="20250202 16:06:35.935" endtime="20250202 16:06:35.935"/>
+<msg timestamp="20250202 16:15:15.568" level="INFO">${email} = admin@site.com</msg>
+<status status="PASS" starttime="20250202 16:15:15.568" endtime="20250202 16:15:15.568"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${login.campoemail}</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20250202 16:06:35.936" level="INFO">Typing text 'admin@site.com' into text field '//input[@type="text"]'.</msg>
-<status status="PASS" starttime="20250202 16:06:35.935" endtime="20250202 16:06:36.178"/>
+<msg timestamp="20250202 16:15:15.570" level="INFO">Typing text 'admin@site.com' into text field '//input[@type="text"]'.</msg>
+<status status="PASS" starttime="20250202 16:15:15.568" endtime="20250202 16:15:15.726"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${senha}</var>
 <arg>TBmerT6Sqc</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20250202 16:06:36.178" level="INFO">${senha} = TBmerT6Sqc</msg>
-<status status="PASS" starttime="20250202 16:06:36.178" endtime="20250202 16:06:36.178"/>
+<msg timestamp="20250202 16:15:15.728" level="INFO">${senha} = TBmerT6Sqc</msg>
+<status status="PASS" starttime="20250202 16:15:15.726" endtime="20250202 16:15:15.728"/>
 </kw>
 <kw name="Input Password" library="SeleniumLibrary">
 <arg>${login.camposenha}</arg>
 <arg>${senha}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<msg timestamp="20250202 16:06:36.179" level="INFO">Typing password into text field '//input[@type="password"]'.</msg>
-<msg timestamp="20250202 16:06:36.266" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20250202 16:06:36.386" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20250202 16:06:36.178" endtime="20250202 16:06:36.387"/>
+<msg timestamp="20250202 16:15:15.730" level="INFO">Typing password into text field '//input[@type="password"]'.</msg>
+<msg timestamp="20250202 16:15:15.745" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20250202 16:15:15.776" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20250202 16:15:15.728" endtime="20250202 16:15:15.776"/>
 </kw>
 <kw name="Get Value" library="SeleniumLibrary">
 <var>${valorEmail}</var>
 <arg>${login.campoemail}</arg>
 <doc>Returns the value attribute of the element identified by ``locator``.</doc>
-<msg timestamp="20250202 16:06:36.418" level="INFO">${valorEmail} = admin@site.com</msg>
-<status status="PASS" starttime="20250202 16:06:36.387" endtime="20250202 16:06:36.418"/>
+<msg timestamp="20250202 16:15:15.808" level="INFO">${valorEmail} = admin@site.com</msg>
+<status status="PASS" starttime="20250202 16:15:15.776" endtime="20250202 16:15:15.808"/>
 </kw>
 <if>
 <branch type="IF" condition="$valorEmail == $email">
@@ -226,63 +226,63 @@
 <var>${valorSenha}</var>
 <arg>${login.camposenha}</arg>
 <doc>Returns the value attribute of the element identified by ``locator``.</doc>
-<msg timestamp="20250202 16:06:36.476" level="INFO">${valorSenha} = TBmerT6Sqc</msg>
-<status status="PASS" starttime="20250202 16:06:36.424" endtime="20250202 16:06:36.476"/>
+<msg timestamp="20250202 16:15:15.847" level="INFO">${valorSenha} = TBmerT6Sqc</msg>
+<status status="PASS" starttime="20250202 16:15:15.815" endtime="20250202 16:15:15.847"/>
 </kw>
 <if>
 <branch type="IF" condition="$valorSenha == $senha">
 <kw name="Log To Console" library="BuiltIn">
 <arg>2ºPasso: Ok</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20250202 16:06:36.476" endtime="20250202 16:06:36.476"/>
+<status status="PASS" starttime="20250202 16:15:15.847" endtime="20250202 16:15:15.848"/>
 </kw>
-<status status="PASS" starttime="20250202 16:06:36.476" endtime="20250202 16:06:36.476"/>
+<status status="PASS" starttime="20250202 16:15:15.847" endtime="20250202 16:15:15.848"/>
 </branch>
 <branch type="ELSE">
 <kw name="Fail" library="BuiltIn">
 <arg>2ºPasso: Falhou - O campo de senha não foi preenchido corretamente e sim com o valor: ${valorSenha}</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20250202 16:06:36.476" endtime="20250202 16:06:36.476"/>
+<status status="NOT RUN" starttime="20250202 16:15:15.849" endtime="20250202 16:15:15.849"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:06:36.476" endtime="20250202 16:06:36.476"/>
+<status status="NOT RUN" starttime="20250202 16:15:15.849" endtime="20250202 16:15:15.849"/>
 </branch>
-<status status="PASS" starttime="20250202 16:06:36.476" endtime="20250202 16:06:36.476"/>
+<status status="PASS" starttime="20250202 16:15:15.847" endtime="20250202 16:15:15.849"/>
 </if>
-<status status="PASS" starttime="20250202 16:06:36.418" endtime="20250202 16:06:36.476"/>
+<status status="PASS" starttime="20250202 16:15:15.808" endtime="20250202 16:15:15.849"/>
 </branch>
 <branch type="ELSE">
 <kw name="Fail" library="BuiltIn">
 <arg>2ºPasso: Falhou - O campo de email não foi preenchido corretamente e sim com o valor: ${valorEmail}</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20250202 16:06:36.476" endtime="20250202 16:06:36.476"/>
+<status status="NOT RUN" starttime="20250202 16:15:15.849" endtime="20250202 16:15:15.849"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:06:36.476" endtime="20250202 16:06:36.476"/>
+<status status="NOT RUN" starttime="20250202 16:15:15.849" endtime="20250202 16:15:15.850"/>
 </branch>
-<status status="PASS" starttime="20250202 16:06:36.418" endtime="20250202 16:06:36.476"/>
+<status status="PASS" starttime="20250202 16:15:15.808" endtime="20250202 16:15:15.850"/>
 </if>
-<status status="PASS" starttime="20250202 16:06:35.935" endtime="20250202 16:06:36.477"/>
+<status status="PASS" starttime="20250202 16:15:15.568" endtime="20250202 16:15:15.850"/>
 </kw>
 <kw name="Quando ele Clicar no botão de Entrar">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${login.btnEntrar}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20250202 16:06:36.478" level="INFO">Clicking element '//button[@id="btn-login"]'.</msg>
-<status status="PASS" starttime="20250202 16:06:36.477" endtime="20250202 16:06:36.587"/>
+<msg timestamp="20250202 16:15:15.853" level="INFO">Clicking element '//button[@id="btn-login"]'.</msg>
+<status status="PASS" starttime="20250202 16:15:15.851" endtime="20250202 16:15:16.119"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>3ºPasso: Ok</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20250202 16:06:36.587" endtime="20250202 16:06:36.588"/>
+<status status="PASS" starttime="20250202 16:15:16.119" endtime="20250202 16:15:16.119"/>
 </kw>
-<status status="PASS" starttime="20250202 16:06:36.477" endtime="20250202 16:06:36.588"/>
+<status status="PASS" starttime="20250202 16:15:15.851" endtime="20250202 16:15:16.119"/>
 </kw>
 <kw name="Então ele terá finalizado o login com sucesso">
 <kw name="Set Variable" library="BuiltIn">
 <var>${tempoEspera}</var>
 <arg>6</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20250202 16:06:36.589" level="INFO">${tempoEspera} = 6</msg>
-<status status="PASS" starttime="20250202 16:06:36.589" endtime="20250202 16:06:36.589"/>
+<msg timestamp="20250202 16:15:16.121" level="INFO">${tempoEspera} = 6</msg>
+<status status="PASS" starttime="20250202 16:15:16.121" endtime="20250202 16:15:16.121"/>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <var>${visivel}</var>
@@ -294,46 +294,46 @@
 <arg>${login.cardLogin}</arg>
 <arg>${tempoEspera}</arg>
 <doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" starttime="20250202 16:06:36.590" endtime="20250202 16:06:41.992"/>
+<status status="PASS" starttime="20250202 16:15:16.122" endtime="20250202 16:15:19.892"/>
 </kw>
-<msg timestamp="20250202 16:06:41.992" level="INFO">${visivel} = True</msg>
-<status status="PASS" starttime="20250202 16:06:36.590" endtime="20250202 16:06:41.992"/>
+<msg timestamp="20250202 16:15:19.892" level="INFO">${visivel} = True</msg>
+<status status="PASS" starttime="20250202 16:15:16.121" endtime="20250202 16:15:19.894"/>
 </kw>
 <if>
 <branch type="IF" condition="${visivel}">
 <kw name="Log To Console" library="BuiltIn">
 <arg>4º Passo: Ok - Página inicial oculta como esperado.</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20250202 16:06:41.992" endtime="20250202 16:06:41.994"/>
+<status status="PASS" starttime="20250202 16:15:19.894" endtime="20250202 16:15:19.894"/>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20250202 16:06:41.994" endtime="20250202 16:06:44.431"/>
+<status status="PASS" starttime="20250202 16:15:19.894" endtime="20250202 16:15:24.045"/>
 </kw>
-<status status="PASS" starttime="20250202 16:06:41.992" endtime="20250202 16:06:44.431"/>
+<status status="PASS" starttime="20250202 16:15:19.894" endtime="20250202 16:15:24.045"/>
 </branch>
 <branch type="ELSE">
 <kw name="Fail" library="BuiltIn">
 <arg>4º Passo: Falhou - A página inicial de configuração do CMS ainda está visível após ${tempoEspera} segundos.</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20250202 16:06:44.432" endtime="20250202 16:06:44.432"/>
+<status status="NOT RUN" starttime="20250202 16:15:24.045" endtime="20250202 16:15:24.045"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:06:44.431" endtime="20250202 16:06:44.432"/>
+<status status="NOT RUN" starttime="20250202 16:15:24.045" endtime="20250202 16:15:24.045"/>
 </branch>
-<status status="PASS" starttime="20250202 16:06:41.992" endtime="20250202 16:06:44.432"/>
+<status status="PASS" starttime="20250202 16:15:19.894" endtime="20250202 16:15:24.047"/>
 </if>
-<status status="PASS" starttime="20250202 16:06:36.589" endtime="20250202 16:06:44.432"/>
+<status status="PASS" starttime="20250202 16:15:16.120" endtime="20250202 16:15:24.047"/>
 </kw>
-<status status="PASS" starttime="20250202 16:06:24.220" endtime="20250202 16:06:44.432"/>
+<status status="PASS" starttime="20250202 16:14:56.677" endtime="20250202 16:15:24.048"/>
 </test>
-<test id="s1-t2" name="Logando Sem Senha" line="121">
+<test id="s1-t2" name="Logando Sem Senha" line="133">
 <kw name="Dado um usuário Acessando a página de login do CMS">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${login.url}</arg>
-<arg>edge</arg>
+<arg>firefox</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20250202 16:06:44.437" level="INFO">Opening browser 'edge' to base url 'https://manual.biobots.com.br/login'.</msg>
-<status status="PASS" starttime="20250202 16:06:44.435" endtime="20250202 16:06:47.754"/>
+<msg timestamp="20250202 16:15:24.053" level="INFO">Opening browser 'firefox' to base url 'https://manual.biobots.com.br/login'.</msg>
+<status status="PASS" starttime="20250202 16:15:24.051" endtime="20250202 16:15:36.982"/>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <var>${visivel}</var>
@@ -345,29 +345,29 @@
 <arg>${login.cardLogin}</arg>
 <arg>2</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250202 16:06:47.755" endtime="20250202 16:06:47.803"/>
+<status status="PASS" starttime="20250202 16:15:36.983" endtime="20250202 16:15:37.157"/>
 </kw>
-<msg timestamp="20250202 16:06:47.803" level="INFO">${visivel} = True</msg>
-<status status="PASS" starttime="20250202 16:06:47.755" endtime="20250202 16:06:47.803"/>
+<msg timestamp="20250202 16:15:37.157" level="INFO">${visivel} = True</msg>
+<status status="PASS" starttime="20250202 16:15:36.982" endtime="20250202 16:15:37.157"/>
 </kw>
 <if>
 <branch type="IF" condition="${visivel}">
 <kw name="Log To Console" library="BuiltIn">
 <arg>1º Passo: Ok</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20250202 16:06:47.803" endtime="20250202 16:06:47.805"/>
+<status status="PASS" starttime="20250202 16:15:37.157" endtime="20250202 16:15:37.159"/>
 </kw>
-<status status="PASS" starttime="20250202 16:06:47.803" endtime="20250202 16:06:47.805"/>
+<status status="PASS" starttime="20250202 16:15:37.157" endtime="20250202 16:15:37.159"/>
 </branch>
 <branch type="ELSE">
 <kw name="Fail" library="BuiltIn">
 <arg>1º Passo: Falhou - Página de Login não encontrada</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20250202 16:06:47.805" endtime="20250202 16:06:47.805"/>
+<status status="NOT RUN" starttime="20250202 16:15:37.159" endtime="20250202 16:15:37.159"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:06:47.805" endtime="20250202 16:06:47.805"/>
+<status status="NOT RUN" starttime="20250202 16:15:37.159" endtime="20250202 16:15:37.159"/>
 </branch>
-<status status="PASS" starttime="20250202 16:06:47.803" endtime="20250202 16:06:47.805"/>
+<status status="PASS" starttime="20250202 16:15:37.157" endtime="20250202 16:15:37.159"/>
 </if>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>&amp;{fields}</var>
@@ -375,20 +375,20 @@
 <arg>Campo de Senha=${login.camposenha}</arg>
 <arg>Botão de Entrar=${login.btnEntrar}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20250202 16:06:47.807" level="INFO">&amp;{fields} = { Campo de Email=//input[@type="text"] | Campo de Senha=//input[@type="password"] | Botão de Entrar=//button[@id="btn-login"] }</msg>
-<status status="PASS" starttime="20250202 16:06:47.806" endtime="20250202 16:06:47.807"/>
+<msg timestamp="20250202 16:15:37.164" level="INFO">&amp;{fields} = { Campo de Email=//input[@type="text"] | Campo de Senha=//input[@type="password"] | Botão de Entrar=//button[@id="btn-login"] }</msg>
+<status status="PASS" starttime="20250202 16:15:37.161" endtime="20250202 16:15:37.164"/>
 </kw>
 <kw name="Create List" library="BuiltIn">
 <var>@{Campos_Nao_Encontrados}</var>
 <doc>Returns a list containing given items.</doc>
-<msg timestamp="20250202 16:06:47.808" level="INFO">@{Campos_Nao_Encontrados} = [ ]</msg>
-<status status="PASS" starttime="20250202 16:06:47.807" endtime="20250202 16:06:47.808"/>
+<msg timestamp="20250202 16:15:37.166" level="INFO">@{Campos_Nao_Encontrados} = [ ]</msg>
+<status status="PASS" starttime="20250202 16:15:37.166" endtime="20250202 16:15:37.166"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250202 16:06:49.808" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20250202 16:06:47.808" endtime="20250202 16:06:49.808"/>
+<msg timestamp="20250202 16:15:39.169" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20250202 16:15:37.166" endtime="20250202 16:15:39.169"/>
 </kw>
 <for flavor="IN">
 <var>${field}</var>
@@ -403,11 +403,11 @@
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${fields["${field}"]}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20250202 16:06:49.872" level="INFO">Element '//input[@type="text"]' is displayed.</msg>
-<status status="PASS" starttime="20250202 16:06:49.810" endtime="20250202 16:06:49.872"/>
+<msg timestamp="20250202 16:15:39.236" level="INFO">Element '//input[@type="text"]' is displayed.</msg>
+<status status="PASS" starttime="20250202 16:15:39.171" endtime="20250202 16:15:39.236"/>
 </kw>
-<msg timestamp="20250202 16:06:49.874" level="INFO">${Visible} = True</msg>
-<status status="PASS" starttime="20250202 16:06:49.810" endtime="20250202 16:06:49.874"/>
+<msg timestamp="20250202 16:15:39.238" level="INFO">${Visible} = True</msg>
+<status status="PASS" starttime="20250202 16:15:39.170" endtime="20250202 16:15:39.238"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Visible}' == 'False'">
@@ -415,13 +415,13 @@
 <arg>${Campos_Nao_Encontrados}</arg>
 <arg>${field}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="NOT RUN" starttime="20250202 16:06:49.874" endtime="20250202 16:06:49.874"/>
+<status status="NOT RUN" starttime="20250202 16:15:39.238" endtime="20250202 16:15:39.239"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:06:49.874" endtime="20250202 16:06:49.874"/>
+<status status="NOT RUN" starttime="20250202 16:15:39.238" endtime="20250202 16:15:39.239"/>
 </branch>
-<status status="PASS" starttime="20250202 16:06:49.874" endtime="20250202 16:06:49.874"/>
+<status status="PASS" starttime="20250202 16:15:39.238" endtime="20250202 16:15:39.239"/>
 </if>
-<status status="PASS" starttime="20250202 16:06:49.810" endtime="20250202 16:06:49.874"/>
+<status status="PASS" starttime="20250202 16:15:39.170" endtime="20250202 16:15:39.239"/>
 </iter>
 <iter>
 <var name="${field}">Campo de Senha</var>
@@ -433,11 +433,11 @@
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${fields["${field}"]}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20250202 16:06:50.134" level="INFO">Element '//input[@type="password"]' is displayed.</msg>
-<status status="PASS" starttime="20250202 16:06:49.876" endtime="20250202 16:06:50.134"/>
+<msg timestamp="20250202 16:15:39.302" level="INFO">Element '//input[@type="password"]' is displayed.</msg>
+<status status="PASS" starttime="20250202 16:15:39.240" endtime="20250202 16:15:39.302"/>
 </kw>
-<msg timestamp="20250202 16:06:50.134" level="INFO">${Visible} = True</msg>
-<status status="PASS" starttime="20250202 16:06:49.875" endtime="20250202 16:06:50.134"/>
+<msg timestamp="20250202 16:15:39.302" level="INFO">${Visible} = True</msg>
+<status status="PASS" starttime="20250202 16:15:39.239" endtime="20250202 16:15:39.303"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Visible}' == 'False'">
@@ -445,13 +445,13 @@
 <arg>${Campos_Nao_Encontrados}</arg>
 <arg>${field}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="NOT RUN" starttime="20250202 16:06:50.135" endtime="20250202 16:06:50.135"/>
+<status status="NOT RUN" starttime="20250202 16:15:39.303" endtime="20250202 16:15:39.303"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:06:50.134" endtime="20250202 16:06:50.135"/>
+<status status="NOT RUN" starttime="20250202 16:15:39.303" endtime="20250202 16:15:39.304"/>
 </branch>
-<status status="PASS" starttime="20250202 16:06:50.134" endtime="20250202 16:06:50.135"/>
+<status status="PASS" starttime="20250202 16:15:39.303" endtime="20250202 16:15:39.304"/>
 </if>
-<status status="PASS" starttime="20250202 16:06:49.874" endtime="20250202 16:06:50.135"/>
+<status status="PASS" starttime="20250202 16:15:39.239" endtime="20250202 16:15:39.304"/>
 </iter>
 <iter>
 <var name="${field}">Botão de Entrar</var>
@@ -463,11 +463,11 @@
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${fields["${field}"]}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20250202 16:06:50.176" level="INFO">Element '//button[@id="btn-login"]' is displayed.</msg>
-<status status="PASS" starttime="20250202 16:06:50.136" endtime="20250202 16:06:50.176"/>
+<msg timestamp="20250202 16:15:39.377" level="INFO">Element '//button[@id="btn-login"]' is displayed.</msg>
+<status status="PASS" starttime="20250202 16:15:39.305" endtime="20250202 16:15:39.377"/>
 </kw>
-<msg timestamp="20250202 16:06:50.176" level="INFO">${Visible} = True</msg>
-<status status="PASS" starttime="20250202 16:06:50.135" endtime="20250202 16:06:50.176"/>
+<msg timestamp="20250202 16:15:39.378" level="INFO">${Visible} = True</msg>
+<status status="PASS" starttime="20250202 16:15:39.304" endtime="20250202 16:15:39.378"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Visible}' == 'False'">
@@ -475,102 +475,102 @@
 <arg>${Campos_Nao_Encontrados}</arg>
 <arg>${field}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="NOT RUN" starttime="20250202 16:06:50.177" endtime="20250202 16:06:50.177"/>
+<status status="NOT RUN" starttime="20250202 16:15:39.378" endtime="20250202 16:15:39.379"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:06:50.176" endtime="20250202 16:06:50.177"/>
+<status status="NOT RUN" starttime="20250202 16:15:39.378" endtime="20250202 16:15:39.379"/>
 </branch>
-<status status="PASS" starttime="20250202 16:06:50.176" endtime="20250202 16:06:50.177"/>
+<status status="PASS" starttime="20250202 16:15:39.378" endtime="20250202 16:15:39.380"/>
 </if>
-<status status="PASS" starttime="20250202 16:06:50.135" endtime="20250202 16:06:50.177"/>
+<status status="PASS" starttime="20250202 16:15:39.304" endtime="20250202 16:15:39.380"/>
 </iter>
-<status status="PASS" starttime="20250202 16:06:49.808" endtime="20250202 16:06:50.177"/>
+<status status="PASS" starttime="20250202 16:15:39.169" endtime="20250202 16:15:39.380"/>
 </for>
 <if>
 <branch type="IF" condition="${Campos_Nao_Encontrados} != []">
 <kw name="Fail" library="BuiltIn">
 <arg>1ºPasso: Falhou - O campos ${Campos_Nao_Encontrados} não foram encontrados</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20250202 16:06:50.177" endtime="20250202 16:06:50.177"/>
+<status status="NOT RUN" starttime="20250202 16:15:39.381" endtime="20250202 16:15:39.382"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:06:50.177" endtime="20250202 16:06:50.178"/>
+<status status="NOT RUN" starttime="20250202 16:15:39.381" endtime="20250202 16:15:39.382"/>
 </branch>
 <branch type="ELSE">
 <kw name="Sleep" library="BuiltIn">
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250202 16:06:52.178" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20250202 16:06:50.178" endtime="20250202 16:06:52.178"/>
+<msg timestamp="20250202 16:15:41.383" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20250202 16:15:39.383" endtime="20250202 16:15:41.384"/>
 </kw>
-<status status="PASS" starttime="20250202 16:06:50.178" endtime="20250202 16:06:52.178"/>
+<status status="PASS" starttime="20250202 16:15:39.382" endtime="20250202 16:15:41.384"/>
 </branch>
-<status status="PASS" starttime="20250202 16:06:50.177" endtime="20250202 16:06:52.178"/>
+<status status="PASS" starttime="20250202 16:15:39.380" endtime="20250202 16:15:41.384"/>
 </if>
-<status status="PASS" starttime="20250202 16:06:44.435" endtime="20250202 16:06:52.178"/>
+<status status="PASS" starttime="20250202 16:15:24.051" endtime="20250202 16:15:41.384"/>
 </kw>
 <kw name="E preenchendo apenas o campo de e-mail">
 <kw name="Set Variable" library="BuiltIn">
 <var>${email}</var>
 <arg>admin@site.com</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20250202 16:06:52.179" level="INFO">${email} = admin@site.com</msg>
-<status status="PASS" starttime="20250202 16:06:52.178" endtime="20250202 16:06:52.179"/>
+<msg timestamp="20250202 16:15:41.386" level="INFO">${email} = admin@site.com</msg>
+<status status="PASS" starttime="20250202 16:15:41.386" endtime="20250202 16:15:41.386"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${login.campoemail}</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20250202 16:06:52.179" level="INFO">Typing text 'admin@site.com' into text field '//input[@type="text"]'.</msg>
-<status status="PASS" starttime="20250202 16:06:52.179" endtime="20250202 16:06:52.344"/>
+<msg timestamp="20250202 16:15:41.388" level="INFO">Typing text 'admin@site.com' into text field '//input[@type="text"]'.</msg>
+<status status="PASS" starttime="20250202 16:15:41.386" endtime="20250202 16:15:41.601"/>
 </kw>
 <kw name="Get Value" library="SeleniumLibrary">
 <var>${valorEmail}</var>
 <arg>${login.campoemail}</arg>
 <doc>Returns the value attribute of the element identified by ``locator``.</doc>
-<msg timestamp="20250202 16:06:52.384" level="INFO">${valorEmail} = admin@site.com</msg>
-<status status="PASS" starttime="20250202 16:06:52.344" endtime="20250202 16:06:52.384"/>
+<msg timestamp="20250202 16:15:41.674" level="INFO">${valorEmail} = admin@site.com</msg>
+<status status="PASS" starttime="20250202 16:15:41.601" endtime="20250202 16:15:41.674"/>
 </kw>
 <if>
 <branch type="IF" condition="$valorEmail == $email">
 <kw name="Log To Console" library="BuiltIn">
 <arg>3ºPasso: Ok</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20250202 16:06:52.385" endtime="20250202 16:06:52.386"/>
+<status status="PASS" starttime="20250202 16:15:41.675" endtime="20250202 16:15:41.676"/>
 </kw>
-<status status="PASS" starttime="20250202 16:06:52.384" endtime="20250202 16:06:52.386"/>
+<status status="PASS" starttime="20250202 16:15:41.675" endtime="20250202 16:15:41.676"/>
 </branch>
 <branch type="ELSE">
 <kw name="Fail" library="BuiltIn">
 <arg>3ºPasso: Falhou - O campo de email não foi preenchido corretamente e sim com o valor: ${valorEmail}</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20250202 16:06:52.386" endtime="20250202 16:06:52.386"/>
+<status status="NOT RUN" starttime="20250202 16:15:41.676" endtime="20250202 16:15:41.676"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:06:52.386" endtime="20250202 16:06:52.387"/>
+<status status="NOT RUN" starttime="20250202 16:15:41.676" endtime="20250202 16:15:41.676"/>
 </branch>
-<status status="PASS" starttime="20250202 16:06:52.384" endtime="20250202 16:06:52.387"/>
+<status status="PASS" starttime="20250202 16:15:41.675" endtime="20250202 16:15:41.676"/>
 </if>
-<status status="PASS" starttime="20250202 16:06:52.178" endtime="20250202 16:06:52.387"/>
+<status status="PASS" starttime="20250202 16:15:41.385" endtime="20250202 16:15:41.676"/>
 </kw>
 <kw name="Quando ele Clicar no botão de Entrar">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${login.btnEntrar}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20250202 16:06:52.389" level="INFO">Clicking element '//button[@id="btn-login"]'.</msg>
-<status status="PASS" starttime="20250202 16:06:52.388" endtime="20250202 16:06:52.549"/>
+<msg timestamp="20250202 16:15:41.679" level="INFO">Clicking element '//button[@id="btn-login"]'.</msg>
+<status status="PASS" starttime="20250202 16:15:41.678" endtime="20250202 16:15:41.963"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>3ºPasso: Ok</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20250202 16:06:52.549" endtime="20250202 16:06:52.550"/>
+<status status="PASS" starttime="20250202 16:15:41.963" endtime="20250202 16:15:41.964"/>
 </kw>
-<status status="PASS" starttime="20250202 16:06:52.387" endtime="20250202 16:06:52.550"/>
+<status status="PASS" starttime="20250202 16:15:41.677" endtime="20250202 16:15:41.964"/>
 </kw>
 <kw name="Então ele deverá ter seu login impedido pela falta de preenchimento de e-mail ou senha">
 <kw name="Set Variable" library="BuiltIn">
 <var>${tempoEspera}</var>
 <arg>6</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20250202 16:06:52.551" level="INFO">${tempoEspera} = 6</msg>
-<status status="PASS" starttime="20250202 16:06:52.551" endtime="20250202 16:06:52.551"/>
+<msg timestamp="20250202 16:15:41.967" level="INFO">${tempoEspera} = 6</msg>
+<status status="PASS" starttime="20250202 16:15:41.967" endtime="20250202 16:15:41.968"/>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <var>${visivel}</var>
@@ -582,46 +582,46 @@
 <arg>${login.validacaoLogin}</arg>
 <arg>${tempoEspera}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250202 16:06:52.551" endtime="20250202 16:06:52.587"/>
+<status status="PASS" starttime="20250202 16:15:41.968" endtime="20250202 16:15:42.009"/>
 </kw>
-<msg timestamp="20250202 16:06:52.587" level="INFO">${visivel} = True</msg>
-<status status="PASS" starttime="20250202 16:06:52.551" endtime="20250202 16:06:52.587"/>
+<msg timestamp="20250202 16:15:42.009" level="INFO">${visivel} = True</msg>
+<status status="PASS" starttime="20250202 16:15:41.968" endtime="20250202 16:15:42.010"/>
 </kw>
 <if>
 <branch type="IF" condition="${visivel}">
 <kw name="Log To Console" library="BuiltIn">
 <arg>4º Passo: Ok - mensagem de validação de e-mail e senha mostrada com sucesso!!</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20250202 16:06:52.587" endtime="20250202 16:06:52.587"/>
+<status status="PASS" starttime="20250202 16:15:42.010" endtime="20250202 16:15:42.012"/>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20250202 16:06:52.589" endtime="20250202 16:06:54.939"/>
+<status status="PASS" starttime="20250202 16:15:42.012" endtime="20250202 16:15:46.188"/>
 </kw>
-<status status="PASS" starttime="20250202 16:06:52.587" endtime="20250202 16:06:54.939"/>
+<status status="PASS" starttime="20250202 16:15:42.010" endtime="20250202 16:15:46.188"/>
 </branch>
 <branch type="ELSE">
 <kw name="Fail" library="BuiltIn">
 <arg>4º Passo: Falhou - A mensagem de validação de e-mail e senha não foi vista em ${tempoEspera} segundos</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20250202 16:06:54.939" endtime="20250202 16:06:54.939"/>
+<status status="NOT RUN" starttime="20250202 16:15:46.188" endtime="20250202 16:15:46.188"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:06:54.939" endtime="20250202 16:06:54.939"/>
+<status status="NOT RUN" starttime="20250202 16:15:46.188" endtime="20250202 16:15:46.188"/>
 </branch>
-<status status="PASS" starttime="20250202 16:06:52.587" endtime="20250202 16:06:54.939"/>
+<status status="PASS" starttime="20250202 16:15:42.010" endtime="20250202 16:15:46.188"/>
 </if>
-<status status="PASS" starttime="20250202 16:06:52.551" endtime="20250202 16:06:54.939"/>
+<status status="PASS" starttime="20250202 16:15:41.966" endtime="20250202 16:15:46.188"/>
 </kw>
-<status status="PASS" starttime="20250202 16:06:44.434" endtime="20250202 16:06:54.940"/>
+<status status="PASS" starttime="20250202 16:15:24.049" endtime="20250202 16:15:46.190"/>
 </test>
-<test id="s1-t3" name="Logando Sem E-mail" line="126">
+<test id="s1-t3" name="Logando Sem E-mail" line="138">
 <kw name="Dado um usuário Acessando a página de login do CMS">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${login.url}</arg>
-<arg>edge</arg>
+<arg>firefox</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20250202 16:06:54.944" level="INFO">Opening browser 'edge' to base url 'https://manual.biobots.com.br/login'.</msg>
-<status status="PASS" starttime="20250202 16:06:54.942" endtime="20250202 16:06:58.151"/>
+<msg timestamp="20250202 16:15:46.195" level="INFO">Opening browser 'firefox' to base url 'https://manual.biobots.com.br/login'.</msg>
+<status status="PASS" starttime="20250202 16:15:46.193" endtime="20250202 16:15:57.618"/>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <var>${visivel}</var>
@@ -633,29 +633,29 @@
 <arg>${login.cardLogin}</arg>
 <arg>2</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250202 16:06:58.152" endtime="20250202 16:06:58.285"/>
+<status status="PASS" starttime="20250202 16:15:57.619" endtime="20250202 16:15:57.684"/>
 </kw>
-<msg timestamp="20250202 16:06:58.285" level="INFO">${visivel} = True</msg>
-<status status="PASS" starttime="20250202 16:06:58.152" endtime="20250202 16:06:58.285"/>
+<msg timestamp="20250202 16:15:57.684" level="INFO">${visivel} = True</msg>
+<status status="PASS" starttime="20250202 16:15:57.619" endtime="20250202 16:15:57.684"/>
 </kw>
 <if>
 <branch type="IF" condition="${visivel}">
 <kw name="Log To Console" library="BuiltIn">
 <arg>1º Passo: Ok</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20250202 16:06:58.286" endtime="20250202 16:06:58.288"/>
+<status status="PASS" starttime="20250202 16:15:57.686" endtime="20250202 16:15:57.686"/>
 </kw>
-<status status="PASS" starttime="20250202 16:06:58.286" endtime="20250202 16:06:58.288"/>
+<status status="PASS" starttime="20250202 16:15:57.686" endtime="20250202 16:15:57.686"/>
 </branch>
 <branch type="ELSE">
 <kw name="Fail" library="BuiltIn">
 <arg>1º Passo: Falhou - Página de Login não encontrada</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20250202 16:06:58.288" endtime="20250202 16:06:58.288"/>
+<status status="NOT RUN" starttime="20250202 16:15:57.688" endtime="20250202 16:15:57.688"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:06:58.288" endtime="20250202 16:06:58.288"/>
+<status status="NOT RUN" starttime="20250202 16:15:57.686" endtime="20250202 16:15:57.688"/>
 </branch>
-<status status="PASS" starttime="20250202 16:06:58.286" endtime="20250202 16:06:58.288"/>
+<status status="PASS" starttime="20250202 16:15:57.684" endtime="20250202 16:15:57.688"/>
 </if>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>&amp;{fields}</var>
@@ -663,20 +663,20 @@
 <arg>Campo de Senha=${login.camposenha}</arg>
 <arg>Botão de Entrar=${login.btnEntrar}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20250202 16:06:58.291" level="INFO">&amp;{fields} = { Campo de Email=//input[@type="text"] | Campo de Senha=//input[@type="password"] | Botão de Entrar=//button[@id="btn-login"] }</msg>
-<status status="PASS" starttime="20250202 16:06:58.288" endtime="20250202 16:06:58.291"/>
+<msg timestamp="20250202 16:15:57.691" level="INFO">&amp;{fields} = { Campo de Email=//input[@type="text"] | Campo de Senha=//input[@type="password"] | Botão de Entrar=//button[@id="btn-login"] }</msg>
+<status status="PASS" starttime="20250202 16:15:57.688" endtime="20250202 16:15:57.691"/>
 </kw>
 <kw name="Create List" library="BuiltIn">
 <var>@{Campos_Nao_Encontrados}</var>
 <doc>Returns a list containing given items.</doc>
-<msg timestamp="20250202 16:06:58.291" level="INFO">@{Campos_Nao_Encontrados} = [ ]</msg>
-<status status="PASS" starttime="20250202 16:06:58.291" endtime="20250202 16:06:58.291"/>
+<msg timestamp="20250202 16:15:57.691" level="INFO">@{Campos_Nao_Encontrados} = [ ]</msg>
+<status status="PASS" starttime="20250202 16:15:57.691" endtime="20250202 16:15:57.691"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250202 16:07:00.292" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20250202 16:06:58.291" endtime="20250202 16:07:00.292"/>
+<msg timestamp="20250202 16:15:59.693" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20250202 16:15:57.692" endtime="20250202 16:15:59.693"/>
 </kw>
 <for flavor="IN">
 <var>${field}</var>
@@ -691,11 +691,11 @@
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${fields["${field}"]}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20250202 16:07:00.384" level="INFO">Element '//input[@type="text"]' is displayed.</msg>
-<status status="PASS" starttime="20250202 16:07:00.293" endtime="20250202 16:07:00.384"/>
+<msg timestamp="20250202 16:15:59.719" level="INFO">Element '//input[@type="text"]' is displayed.</msg>
+<status status="PASS" starttime="20250202 16:15:59.694" endtime="20250202 16:15:59.719"/>
 </kw>
-<msg timestamp="20250202 16:07:00.384" level="INFO">${Visible} = True</msg>
-<status status="PASS" starttime="20250202 16:07:00.293" endtime="20250202 16:07:00.384"/>
+<msg timestamp="20250202 16:15:59.719" level="INFO">${Visible} = True</msg>
+<status status="PASS" starttime="20250202 16:15:59.694" endtime="20250202 16:15:59.719"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Visible}' == 'False'">
@@ -703,13 +703,13 @@
 <arg>${Campos_Nao_Encontrados}</arg>
 <arg>${field}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="NOT RUN" starttime="20250202 16:07:00.385" endtime="20250202 16:07:00.385"/>
+<status status="NOT RUN" starttime="20250202 16:15:59.720" endtime="20250202 16:15:59.720"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:07:00.384" endtime="20250202 16:07:00.385"/>
+<status status="NOT RUN" starttime="20250202 16:15:59.720" endtime="20250202 16:15:59.720"/>
 </branch>
-<status status="PASS" starttime="20250202 16:07:00.384" endtime="20250202 16:07:00.385"/>
+<status status="PASS" starttime="20250202 16:15:59.720" endtime="20250202 16:15:59.720"/>
 </if>
-<status status="PASS" starttime="20250202 16:07:00.293" endtime="20250202 16:07:00.385"/>
+<status status="PASS" starttime="20250202 16:15:59.694" endtime="20250202 16:15:59.720"/>
 </iter>
 <iter>
 <var name="${field}">Campo de Senha</var>
@@ -721,11 +721,11 @@
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${fields["${field}"]}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20250202 16:07:00.421" level="INFO">Element '//input[@type="password"]' is displayed.</msg>
-<status status="PASS" starttime="20250202 16:07:00.386" endtime="20250202 16:07:00.421"/>
+<msg timestamp="20250202 16:15:59.754" level="INFO">Element '//input[@type="password"]' is displayed.</msg>
+<status status="PASS" starttime="20250202 16:15:59.721" endtime="20250202 16:15:59.754"/>
 </kw>
-<msg timestamp="20250202 16:07:00.421" level="INFO">${Visible} = True</msg>
-<status status="PASS" starttime="20250202 16:07:00.386" endtime="20250202 16:07:00.421"/>
+<msg timestamp="20250202 16:15:59.754" level="INFO">${Visible} = True</msg>
+<status status="PASS" starttime="20250202 16:15:59.721" endtime="20250202 16:15:59.754"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Visible}' == 'False'">
@@ -733,13 +733,13 @@
 <arg>${Campos_Nao_Encontrados}</arg>
 <arg>${field}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="NOT RUN" starttime="20250202 16:07:00.421" endtime="20250202 16:07:00.422"/>
+<status status="NOT RUN" starttime="20250202 16:15:59.756" endtime="20250202 16:15:59.756"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:07:00.421" endtime="20250202 16:07:00.422"/>
+<status status="NOT RUN" starttime="20250202 16:15:59.756" endtime="20250202 16:15:59.756"/>
 </branch>
-<status status="PASS" starttime="20250202 16:07:00.421" endtime="20250202 16:07:00.422"/>
+<status status="PASS" starttime="20250202 16:15:59.756" endtime="20250202 16:15:59.756"/>
 </if>
-<status status="PASS" starttime="20250202 16:07:00.385" endtime="20250202 16:07:00.422"/>
+<status status="PASS" starttime="20250202 16:15:59.721" endtime="20250202 16:15:59.756"/>
 </iter>
 <iter>
 <var name="${field}">Botão de Entrar</var>
@@ -751,11 +751,11 @@
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${fields["${field}"]}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20250202 16:07:00.455" level="INFO">Element '//button[@id="btn-login"]' is displayed.</msg>
-<status status="PASS" starttime="20250202 16:07:00.422" endtime="20250202 16:07:00.456"/>
+<msg timestamp="20250202 16:15:59.784" level="INFO">Element '//button[@id="btn-login"]' is displayed.</msg>
+<status status="PASS" starttime="20250202 16:15:59.757" endtime="20250202 16:15:59.784"/>
 </kw>
-<msg timestamp="20250202 16:07:00.456" level="INFO">${Visible} = True</msg>
-<status status="PASS" starttime="20250202 16:07:00.422" endtime="20250202 16:07:00.456"/>
+<msg timestamp="20250202 16:15:59.784" level="INFO">${Visible} = True</msg>
+<status status="PASS" starttime="20250202 16:15:59.756" endtime="20250202 16:15:59.784"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Visible}' == 'False'">
@@ -763,104 +763,104 @@
 <arg>${Campos_Nao_Encontrados}</arg>
 <arg>${field}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="NOT RUN" starttime="20250202 16:07:00.456" endtime="20250202 16:07:00.456"/>
+<status status="NOT RUN" starttime="20250202 16:15:59.784" endtime="20250202 16:15:59.784"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:07:00.456" endtime="20250202 16:07:00.456"/>
+<status status="NOT RUN" starttime="20250202 16:15:59.784" endtime="20250202 16:15:59.784"/>
 </branch>
-<status status="PASS" starttime="20250202 16:07:00.456" endtime="20250202 16:07:00.456"/>
+<status status="PASS" starttime="20250202 16:15:59.784" endtime="20250202 16:15:59.785"/>
 </if>
-<status status="PASS" starttime="20250202 16:07:00.422" endtime="20250202 16:07:00.456"/>
+<status status="PASS" starttime="20250202 16:15:59.756" endtime="20250202 16:15:59.785"/>
 </iter>
-<status status="PASS" starttime="20250202 16:07:00.292" endtime="20250202 16:07:00.456"/>
+<status status="PASS" starttime="20250202 16:15:59.693" endtime="20250202 16:15:59.785"/>
 </for>
 <if>
 <branch type="IF" condition="${Campos_Nao_Encontrados} != []">
 <kw name="Fail" library="BuiltIn">
 <arg>1ºPasso: Falhou - O campos ${Campos_Nao_Encontrados} não foram encontrados</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20250202 16:07:00.456" endtime="20250202 16:07:00.456"/>
+<status status="NOT RUN" starttime="20250202 16:15:59.785" endtime="20250202 16:15:59.785"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:07:00.456" endtime="20250202 16:07:00.456"/>
+<status status="NOT RUN" starttime="20250202 16:15:59.785" endtime="20250202 16:15:59.785"/>
 </branch>
 <branch type="ELSE">
 <kw name="Sleep" library="BuiltIn">
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250202 16:07:02.457" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20250202 16:07:00.456" endtime="20250202 16:07:02.457"/>
+<msg timestamp="20250202 16:16:01.786" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20250202 16:15:59.785" endtime="20250202 16:16:01.786"/>
 </kw>
-<status status="PASS" starttime="20250202 16:07:00.456" endtime="20250202 16:07:02.457"/>
+<status status="PASS" starttime="20250202 16:15:59.785" endtime="20250202 16:16:01.786"/>
 </branch>
-<status status="PASS" starttime="20250202 16:07:00.456" endtime="20250202 16:07:02.457"/>
+<status status="PASS" starttime="20250202 16:15:59.785" endtime="20250202 16:16:01.786"/>
 </if>
-<status status="PASS" starttime="20250202 16:06:54.942" endtime="20250202 16:07:02.457"/>
+<status status="PASS" starttime="20250202 16:15:46.193" endtime="20250202 16:16:01.786"/>
 </kw>
 <kw name="E preenchendo apenas o campo de senha">
 <kw name="Set Variable" library="BuiltIn">
 <var>${senha}</var>
 <arg>TBmerT6Sqc</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20250202 16:07:02.458" level="INFO">${senha} = TBmerT6Sqc</msg>
-<status status="PASS" starttime="20250202 16:07:02.458" endtime="20250202 16:07:02.459"/>
+<msg timestamp="20250202 16:16:01.788" level="INFO">${senha} = TBmerT6Sqc</msg>
+<status status="PASS" starttime="20250202 16:16:01.787" endtime="20250202 16:16:01.788"/>
 </kw>
 <kw name="Input Password" library="SeleniumLibrary">
 <arg>${login.camposenha}</arg>
 <arg>${senha}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<msg timestamp="20250202 16:07:02.460" level="INFO">Typing password into text field '//input[@type="password"]'.</msg>
-<msg timestamp="20250202 16:07:02.634" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20250202 16:07:02.728" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20250202 16:07:02.459" endtime="20250202 16:07:02.728"/>
+<msg timestamp="20250202 16:16:01.790" level="INFO">Typing password into text field '//input[@type="password"]'.</msg>
+<msg timestamp="20250202 16:16:01.805" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20250202 16:16:01.882" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20250202 16:16:01.788" endtime="20250202 16:16:01.882"/>
 </kw>
 <kw name="Get Value" library="SeleniumLibrary">
 <var>${valorSenha}</var>
 <arg>${login.camposenha}</arg>
 <doc>Returns the value attribute of the element identified by ``locator``.</doc>
-<msg timestamp="20250202 16:07:02.757" level="INFO">${valorSenha} = TBmerT6Sqc</msg>
-<status status="PASS" starttime="20250202 16:07:02.728" endtime="20250202 16:07:02.757"/>
+<msg timestamp="20250202 16:16:01.912" level="INFO">${valorSenha} = TBmerT6Sqc</msg>
+<status status="PASS" starttime="20250202 16:16:01.882" endtime="20250202 16:16:01.912"/>
 </kw>
 <if>
 <branch type="IF" condition="$valorSenha == $senha">
 <kw name="Log To Console" library="BuiltIn">
 <arg>2ºPasso: Ok</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20250202 16:07:02.757" endtime="20250202 16:07:02.758"/>
+<status status="PASS" starttime="20250202 16:16:01.913" endtime="20250202 16:16:01.914"/>
 </kw>
-<status status="PASS" starttime="20250202 16:07:02.757" endtime="20250202 16:07:02.758"/>
+<status status="PASS" starttime="20250202 16:16:01.912" endtime="20250202 16:16:01.914"/>
 </branch>
 <branch type="ELSE">
 <kw name="Fail" library="BuiltIn">
 <arg>2ºPasso: Falhou - O campo de senha não foi preenchido corretamente e sim com o valor: ${valorSenha}</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20250202 16:07:02.758" endtime="20250202 16:07:02.758"/>
+<status status="NOT RUN" starttime="20250202 16:16:01.914" endtime="20250202 16:16:01.914"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:07:02.758" endtime="20250202 16:07:02.758"/>
+<status status="NOT RUN" starttime="20250202 16:16:01.914" endtime="20250202 16:16:01.914"/>
 </branch>
-<status status="PASS" starttime="20250202 16:07:02.757" endtime="20250202 16:07:02.759"/>
+<status status="PASS" starttime="20250202 16:16:01.912" endtime="20250202 16:16:01.914"/>
 </if>
-<status status="PASS" starttime="20250202 16:07:02.458" endtime="20250202 16:07:02.759"/>
+<status status="PASS" starttime="20250202 16:16:01.787" endtime="20250202 16:16:01.914"/>
 </kw>
 <kw name="Quando ele Clicar no botão de Entrar">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${login.btnEntrar}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20250202 16:07:02.760" level="INFO">Clicking element '//button[@id="btn-login"]'.</msg>
-<status status="PASS" starttime="20250202 16:07:02.759" endtime="20250202 16:07:02.903"/>
+<msg timestamp="20250202 16:16:01.919" level="INFO">Clicking element '//button[@id="btn-login"]'.</msg>
+<status status="PASS" starttime="20250202 16:16:01.917" endtime="20250202 16:16:02.227"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>3ºPasso: Ok</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20250202 16:07:02.903" endtime="20250202 16:07:02.903"/>
+<status status="PASS" starttime="20250202 16:16:02.227" endtime="20250202 16:16:02.228"/>
 </kw>
-<status status="PASS" starttime="20250202 16:07:02.759" endtime="20250202 16:07:02.904"/>
+<status status="PASS" starttime="20250202 16:16:01.916" endtime="20250202 16:16:02.228"/>
 </kw>
 <kw name="Então ele deverá ter seu login impedido pela falta de preenchimento de e-mail ou senha">
 <kw name="Set Variable" library="BuiltIn">
 <var>${tempoEspera}</var>
 <arg>6</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20250202 16:07:02.906" level="INFO">${tempoEspera} = 6</msg>
-<status status="PASS" starttime="20250202 16:07:02.905" endtime="20250202 16:07:02.906"/>
+<msg timestamp="20250202 16:16:02.231" level="INFO">${tempoEspera} = 6</msg>
+<status status="PASS" starttime="20250202 16:16:02.230" endtime="20250202 16:16:02.231"/>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <var>${visivel}</var>
@@ -872,48 +872,98 @@
 <arg>${login.validacaoLogin}</arg>
 <arg>${tempoEspera}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250202 16:07:02.906" endtime="20250202 16:07:02.943"/>
+<status status="PASS" starttime="20250202 16:16:02.232" endtime="20250202 16:16:02.275"/>
 </kw>
-<msg timestamp="20250202 16:07:02.943" level="INFO">${visivel} = True</msg>
-<status status="PASS" starttime="20250202 16:07:02.906" endtime="20250202 16:07:02.943"/>
+<msg timestamp="20250202 16:16:02.275" level="INFO">${visivel} = True</msg>
+<status status="PASS" starttime="20250202 16:16:02.231" endtime="20250202 16:16:02.275"/>
 </kw>
 <if>
 <branch type="IF" condition="${visivel}">
 <kw name="Log To Console" library="BuiltIn">
 <arg>4º Passo: Ok - mensagem de validação de e-mail e senha mostrada com sucesso!!</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20250202 16:07:02.944" endtime="20250202 16:07:02.944"/>
+<status status="PASS" starttime="20250202 16:16:02.276" endtime="20250202 16:16:02.277"/>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20250202 16:07:02.944" endtime="20250202 16:07:05.274"/>
+<status status="PASS" starttime="20250202 16:16:02.277" endtime="20250202 16:16:06.453"/>
 </kw>
-<status status="PASS" starttime="20250202 16:07:02.944" endtime="20250202 16:07:05.274"/>
+<status status="PASS" starttime="20250202 16:16:02.275" endtime="20250202 16:16:06.453"/>
 </branch>
 <branch type="ELSE">
 <kw name="Fail" library="BuiltIn">
 <arg>4º Passo: Falhou - A mensagem de validação de e-mail e senha não foi vista em ${tempoEspera} segundos</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" starttime="20250202 16:07:05.274" endtime="20250202 16:07:05.275"/>
+<status status="NOT RUN" starttime="20250202 16:16:06.453" endtime="20250202 16:16:06.453"/>
 </kw>
-<status status="NOT RUN" starttime="20250202 16:07:05.274" endtime="20250202 16:07:05.275"/>
+<status status="NOT RUN" starttime="20250202 16:16:06.453" endtime="20250202 16:16:06.453"/>
 </branch>
-<status status="PASS" starttime="20250202 16:07:02.943" endtime="20250202 16:07:05.275"/>
+<status status="PASS" starttime="20250202 16:16:02.275" endtime="20250202 16:16:06.454"/>
 </if>
-<status status="PASS" starttime="20250202 16:07:02.905" endtime="20250202 16:07:05.275"/>
+<status status="PASS" starttime="20250202 16:16:02.230" endtime="20250202 16:16:06.454"/>
 </kw>
-<status status="PASS" starttime="20250202 16:06:54.941" endtime="20250202 16:07:05.276"/>
+<status status="PASS" starttime="20250202 16:15:46.192" endtime="20250202 16:16:06.454"/>
 </test>
-<status status="PASS" starttime="20250202 16:06:23.779" endtime="20250202 16:07:05.277"/>
+<test id="s1-t4" name="Teste Feito pra falhar" line="143">
+<kw name="Acessar uma página que n existe">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${login.url2}</arg>
+<arg>firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20250202 16:16:06.460" level="INFO">Opening browser 'firefox' to base url 'https://www.google.com/search?client=opera-gx&amp;q=google&amp;sourceid=opera&amp;ie=UTF-8&amp;oe=UTF-8'.</msg>
+<status status="PASS" starttime="20250202 16:16:06.459" endtime="20250202 16:16:19.851"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${visivel}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${login.cardLogin}</arg>
+<arg>2</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${login.cardLogin}</arg>
+<arg>2</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20250202 16:16:22.099" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20250202 16:16:22.099" level="FAIL">Element '//div[@class="card col-md-6 my-login-card"]' not visible after 2 seconds.</msg>
+<status status="FAIL" starttime="20250202 16:16:19.851" endtime="20250202 16:16:22.102"/>
+</kw>
+<msg timestamp="20250202 16:16:22.103" level="INFO">${visivel} = False</msg>
+<status status="PASS" starttime="20250202 16:16:19.851" endtime="20250202 16:16:22.103"/>
+</kw>
+<if>
+<branch type="IF" condition="${visivel}">
+<kw name="Log To Console" library="BuiltIn">
+<arg>1º Passo: Ok</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20250202 16:16:22.103" endtime="20250202 16:16:22.103"/>
+</kw>
+<status status="NOT RUN" starttime="20250202 16:16:22.103" endtime="20250202 16:16:22.103"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" library="BuiltIn">
+<arg>1º Passo: Falhou - Página de Login não encontrada</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<msg timestamp="20250202 16:16:22.104" level="FAIL">1º Passo: Falhou - Página de Login não encontrada</msg>
+<status status="FAIL" starttime="20250202 16:16:22.103" endtime="20250202 16:16:22.104"/>
+</kw>
+<status status="FAIL" starttime="20250202 16:16:22.103" endtime="20250202 16:16:22.104"/>
+</branch>
+<status status="FAIL" starttime="20250202 16:16:22.103" endtime="20250202 16:16:22.104"/>
+</if>
+<status status="FAIL" starttime="20250202 16:16:06.458" endtime="20250202 16:16:22.105"/>
+</kw>
+<status status="FAIL" starttime="20250202 16:16:06.457" endtime="20250202 16:16:22.105">1º Passo: Falhou - Página de Login não encontrada</status>
+</test>
+<status status="FAIL" starttime="20250202 16:14:55.967" endtime="20250202 16:16:22.108"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="3" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="3" fail="0" skip="0" id="s1" name="Login">Login</stat>
+<stat pass="3" fail="1" skip="0" id="s1" name="Login">Login</stat>
 </suite>
 </statistics>
 <errors>

@@ -5,6 +5,7 @@ Library    Collections
 *** Variables ***
 &{login}
 ...    url=https://manual.biobots.com.br/login
+...    url2=https://www.google.com/search?client=opera-gx&q=google&sourceid=opera&ie=UTF-8&oe=UTF-8
 ...    cardLogin=//div[@class="card col-md-6 my-login-card"]
 ...    campoemail=//input[@type="text"]
 ...    camposenha=//input[@type="password"]
@@ -16,7 +17,7 @@ Library    Collections
 
 ## Logando - Sucesso 
 Dado um usuário Acessando a página de login do CMS
-    Open Browser    ${login.url}    edge
+    Open Browser    ${login.url}    firefox
 
     ${visivel}    Run Keyword And Return Status    Wait Until Element Is Visible    ${login.cardLogin}    2
 
@@ -112,6 +113,17 @@ E preenchendo apenas o campo de senha
     ELSE
         Fail    2ºPasso: Falhou - O campo de senha não foi preenchido corretamente e sim com o valor: ${valorSenha}  
     END
+Acessar uma página que n existe 
+    Open Browser    ${login.url2}    firefox
+
+    ${visivel}    Run Keyword And Return Status    Wait Until Element Is Visible    ${login.cardLogin}    2
+
+    IF    ${visivel}
+        Log To Console    1º Passo: Ok 
+    ELSE
+        Fail    1º Passo: Falhou - Página de Login não encontrada
+    END
+
 *** Test Cases ***
 Logando - Sucesso 
     Dado um usuário Acessando a página de login do CMS
@@ -128,3 +140,5 @@ Logando Sem E-mail
     E preenchendo apenas o campo de senha
     Quando ele Clicar no botão de Entrar
     Então ele deverá ter seu login impedido pela falta de preenchimento de e-mail ou senha 
+Teste Feito pra falhar
+    Acessar uma página que n existe 

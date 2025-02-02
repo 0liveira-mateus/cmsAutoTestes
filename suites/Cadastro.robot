@@ -17,7 +17,7 @@ Library    Collections
 *** Keywords ***
 
 Dado um usuário realizando login no sistema 
-    Open Browser    ${cadastro.url}    edge
+    Open Browser    ${cadastro.url}    firefox
 
     ${visivel}    Run Keyword And Return Status    Wait Until Element Is Visible    ${cadastro.cardLogin}    2
 
