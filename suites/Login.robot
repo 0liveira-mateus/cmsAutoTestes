@@ -8,6 +8,7 @@ Library    FakerLibrary
 ...    url=https://manual.biobots.com.br/login
 ...    url2=https://www.google.com/search?client=opera-gx&q=google&sourceid=opera&ie=UTF-8&oe=UTF-8
 ...    cardLogin=//div[@class="card col-md-6 my-login-card"]
+...    cardLoginFalha=//div[@class="card col-md-6 my-login-card2"]
 ...    campoemail=//input[@type="text"]
 ...    camposenha=//input[@type="password"]
 ...    btnEntrar=//button[@id="btn-login"]
@@ -151,6 +152,17 @@ Então ele verá que o usuário é direcionada para páginas de clientes
     ELSE
         Fail    4º Passo: Falhou  
     END
+Dado um usuário realizando login no sistema PRA FALHAR
+    Open Browser    ${login.url}    firefox    options=add_argument("--headless")
+
+    ${visivel}    Run Keyword And Return Status    Wait Until Element Is Visible    ${login.cardLoginFalha}    2
+
+    IF    ${visivel}
+        Log To Console    1º Passo: Ok 
+    ELSE
+        Fail    1º Passo: Falhou - Página de Login não encontrada
+    END
+
 *** Test Cases ***
 Logando - Sucesso 
     Dado um usuário Acessando a página de login do CMS
@@ -173,3 +185,5 @@ Logado com e-mail inexistente
     E preenchendo os dados de login com dados inexistentes 
     Quando ele Clicar no botão de Entrar
     Então ele verá que o usuário é direcionada para páginas de clientes 
+Teste para Falhar no cadastro 
+    Dado um usuário realizando login no sistema PRA FALHAR

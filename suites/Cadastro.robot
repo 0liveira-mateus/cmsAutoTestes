@@ -6,6 +6,7 @@ Library    Collections
 &{cadastro}
 ...    url=https://manual.biobots.com.br/login
 ...    cardLogin=//div[@class="card col-md-6 my-login-card"]
+...    cardLoginFalha=//div[@class="card col-md-6 my-login-card2"]
 ...    campoemail=//input[@type="text"]
 ...    camposenha=//input[@type="password"]
 ...    btnEntrar=//button[@id="btn-login"]
@@ -121,6 +122,17 @@ E iniciar o cadastro de um novo usuário
     ELSE
         Fail    6ºPasso: Falhou - Formulário de cadastro não encontrado 
     END
+Dado um usuário realizando login no sistema PRA FALHAR
+    Open Browser    ${cadastro.url}    firefox    options=add_argument("--headless")
+
+    ${visivel}    Run Keyword And Return Status    Wait Until Element Is Visible    ${cadastro.cardLoginFalha}    2
+
+    IF    ${visivel}
+        Log To Console    1º Passo: Ok 
+    ELSE
+        Fail    1º Passo: Falhou - Página de Login não encontrada
+    END
+
     
 *** Test Cases ***
 Cadastrar um usuário 
@@ -128,4 +140,6 @@ Cadastrar um usuário
     E acessando o menu usuários 
     E iniciar o cadastro de um novo usuário 
 ## Cadastrar um usuário sem Nome
+Teste para Falhar no cadastro 
+    Dado um usuário realizando login no sistema PRA FALHAR
     
