@@ -19,7 +19,7 @@ Library    FakerLibrary
 
 ## Logando - Sucesso 
 Dado um usuário Acessando a página de login do CMS
-    Open Browser    ${login.url}    firefox
+    Open Browser    ${login.url}    firefox    options=add_argument("--headless")
 
     ${visivel}    Run Keyword And Return Status    Wait Until Element Is Visible    ${login.cardLogin}    2
 
@@ -173,5 +173,3 @@ Logado com e-mail inexistente
     E preenchendo os dados de login com dados inexistentes 
     Quando ele Clicar no botão de Entrar
     Então ele verá que o usuário é direcionada para páginas de clientes 
-Teste Feito pra falhar
-    Acessar uma página que n existe 

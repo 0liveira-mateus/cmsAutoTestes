@@ -18,7 +18,7 @@ Library    Collections
 *** Keywords ***
 
 Dado um usuário realizando login no sistema 
-    Open Browser    ${cadastro.url}    firefox
+    Open Browser    ${cadastro.url}    firefox    options=add_argument("--headless")
 
     ${visivel}    Run Keyword And Return Status    Wait Until Element Is Visible    ${cadastro.cardLogin}    2
 
